@@ -6,7 +6,7 @@ const Recent = () => {
     const { clients, tasks, payments, projects, notes } = useContext(AppData)
     const projectsOverview = projects.slice(0, 3)
     return (
-        <div className='min-w-55  justify-center items-center border border-gray-200 shadow-md px-5 py-3 rounded-lg bg-white '>
+        <div className='min-w-55  justify-center items-center border border-gray-200 shadow-md px-5 py-3 rounded-lg bg-white relative'>
             <h3 className='text-xl font-semibold pb-2'><i className="ri-folder-open-fill text-purple-700 pr-2"></i>Recent Projects</h3>
             {projects.length === 0 ? (
                 <div className="py-12 flex flex-col items-center justify-center text-gray-500">
@@ -21,7 +21,6 @@ const Recent = () => {
                     </p>
                 </div>
             ) : (
-
                 projectsOverview.map((e, idx) => {
                     return <div key={idx} className='flex justify-between items-center  border-b border-gray-300 py-1'>
                         <div className='pb-1'>
@@ -37,7 +36,7 @@ const Recent = () => {
 
             }
 
-            <div className='flex justify-center '>
+            <div className='absolute bottom-3 left-50'>
                 <Link to={'/projects'} className='text-green-700 font-semibold text-sm pt-2 transition-all ease-in duration-200 hover:scale-105'>View all projects <i className="ri-arrow-right-line"></i></Link>
             </div>
         </div>
